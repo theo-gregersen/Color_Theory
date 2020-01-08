@@ -1,0 +1,85 @@
+﻿:root {
+    --grid-width: 500px;
+    --grid-spacing: 15px;
+    --grid-row-count: 4;
+    --tile-size: calc((var(--grid-width) - var(--grid-spacing) * (var(--grid-row-count) + 1)) / var(--grid-row-count));
+    --ts-constant: 110px;
+    --tile-radius: 3px;
+}
+
+html, body {
+    margin: 0;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+body {
+    margin: 100px;
+}
+
+h1 {
+    color: olivedrab;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    width: var(--grid-width);
+    margin: 0 auto;
+}
+
+.game-container {
+    position: relative;
+    box-sizing: border-box;
+    width: var(--grid-width);
+    height: var(--grid-width);
+    background-color: darkolivegreen;
+    margin-top: 30px;
+    padding: var(--grid-spacing);
+    border-radius: var(--tile-radius);
+}
+
+.grid {
+    position: absolute;
+    z-index: 1;
+}
+
+.row {
+    margin-bottom: var(--grid-spacing);
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.cell {
+    float: left;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-color: white;
+    border-radius: var(--tile-radius);
+    margin-right: var(--grid-spacing);
+}
+
+.cell:last-child {
+    margin-right: 0;
+}
+
+.tile {
+    position: absolute;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    border-radius: var(--tile-radius);
+    background-color: lightblue;
+    z-index: 2;
+}
+
+
